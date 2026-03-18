@@ -1166,7 +1166,7 @@
   <div class="stack">
             <div class="card">
           <h2>Minichat</h2>
-          <p class="small">Versão local para testar o visual. Depois dá para conectar no Firebase.</p>
+          <p class="small" style="font-style:italic;color:var(--accent);opacity:0.8;">🪙 "Sussurros de aventureiros ecoam por estas paredes. O que será que o destino reserva hoje?"</p>
 
           <div class="chat-box">
             <div id="chatMessages" class="chat-messages">
@@ -3548,47 +3548,164 @@ function renderChatMessages() {
   // Esta função existe apenas para compatibilidade
 }
 
-// ── 🪙 O COFRE — Narrador IA ────────────────────────────────────────────
-const GEMINI_API_KEY = 'AIzaSyArgOOJzFX7keRuhgw2FhIkEr32_ZdaTow'; // substitua pela sua chave
+// ── 🪙 O COFRE — Narrador local (sem API, sem custo) ────────────────────
+const FALAS_COFRE = {
+  vazio: [
+    "Nenhum tesouro? Até eu, que sou um baú vazio por natureza, me envergonho.",
+    "Parabéns. Você conseguiu encontrar exatamente nada. Talento raro.",
+    "Os deuses de Florin riram hoje. De você, especificamente.",
+    "Eu chorei uma lágrima de ferrugem. Não de emoção — de vergonha alheia.",
+    "Vazio. Como minha alma... e como o seu bolso agora.",
+    "Florin olhou, considerou, e decidiu que você não merecia hoje.",
+    "Nada. Absolutamente nada. Impressionante, de um jeito triste.",
+    "Até os ratos do calabouço acham mais moedas que isso.",
+    "Só xuxu dessa vez. Nem o xuxu era bom.",
+    "Parabéns, você ganhou um xuxu invisível. Nem isso, na verdade.",
+    "Xuxu. Literalmente xuxu. Florin foi econômico hoje.",
+    "O destino olhou pra você e disse: xuxu. Só xuxu.",
+  ],
+  moeda_baixa: [
+    "Algumas moedinhas. Suficiente para comprar... uma cenoura. Parabéns.",
+    "Florins! Poucos, mas são seus. Não os perca num dado.",
+    "Modesto, mas honesto. Diz O Cofre, que já guardou fortunas maiores.",
+    "Trocados. Literalmente trocados. Mas ei, é melhor que nada... por pouco.",
+    "Com isso dá pra comprar meia poção. A metade ruim, claro.",
+    "Florin foi generoso hoje. Generoso como um avarento em dia ruim.",
+    "Quase xuxu. Tecnicamente melhor que xuxu. Só tecnicamente.",
+    "Isso aqui é tão pouco que o xuxu ficou com inveja.",
+  ],
+  moeda_media: [
+    "Agora sim! Isso já dá pra comprar algo decente. Não muito, mas decente.",
+    "Respeitável! Meu interior vibra com o som de moedas tilintando.",
+    "Não é uma fortuna, mas é o suficiente pra você se meter em encrenca maior.",
+    "Boa rolagem! Florin sorriu. Só um pouco, mas sorriu.",
+    "Isso é o que chamo de recompensa honesta por risco desonesto.",
+    "Olha só! Até eu fiquei impressionado, e não é fácil impressionar um baú.",
+  ],
+  fortuna: [
+    "PELA FERRUGEM DOS MEUS GONZOS! Isso é uma FORTUNA! Estou em choque.",
+    "Eu, O Cofre, nunca guardei tanto assim. Você é abençoado. Ou trapaceiro.",
+    "Florin abriu os braços e derramou suas bênçãos. Diretamente no seu colo.",
+    "Isso é obsceno. Gloriosamente, magnificamente obsceno. Parabéns.",
+    "Os outros jogadores te odeiam agora. Eu também, mas por inveja.",
+    "Uma fortuna! Guarde bem. Esconda de todos. Especialmente dos outros jogadores.",
+  ],
+  arma: [
+    "Uma arma! Excelente para fazer inimigos. E também para acabar com eles.",
+    "Aço e determinação. Dois ingredientes para uma morte prematura — dos inimigos.",
+    "Com isso nas mãos, você é perigoso. Para os inimigos. Provavelmente.",
+    "Novo brinquedo cortante! Florin aprova a violência quando é lucrativa.",
+    "Uma lâmina! Trate bem. Ela vai te defender, ou pelo menos morrer na tentativa.",
+  ],
+  armadura: [
+    "Proteção! Porque aparentemente você planeja apanhar bastante. Sábio.",
+    "Boa armadura. Não te tornará invencível, mas tornará sua derrota mais lenta.",
+    "Metal entre você e a morte. Um investimento sólido, literalmente.",
+    "Defesa! Os inimigos vão precisar se esforçar mais pra te matar. Progresso.",
+    "Uma armadura decente. Porque confiar nos reflexos claramente não funciona.",
+  ],
+  pocao: [
+    "Poções! O sinal claro de que você planeja quase morrer em breve.",
+    "Líquido mágico engarrafado. Cheira mal, funciona bem. A vida do aventureiro.",
+    "Ah, poções. O plano B de quem não tem plano A.",
+    "Ingredientes suspeitos, efeitos duvidosos, preço absurdo. Perfeito.",
+    "Leve com cuidado. Ou não. Explosões também são uma forma de progressão.",
+  ],
+  item: [
+    "Um item! Útil como... algo útil. Guarde bem, nunca se sabe.",
+    "Equipamento! Florin provê para aqueles que rolam dados com fé.",
+    "Não é ouro, mas é algo. E algo é sempre melhor que nada. Quase sempre.",
+    "Um achado interessante. O tipo de coisa que salva a vida quando menos espera.",
+    "Curioso. Prático. Certamente vai ocupar espaço na mochila.",
+    "Basicamente xuxu com embrulho. Mas é seu xuxu agora.",
+    "Florin te deu isso. Florins de verdade eram demais pra você aparentemente.",
+    "Um item genérico para um aventureiro genérico. Combinam bem.",
+  ],
+  encantado: [
+    "ENCANTADO?! Florin foi generoso demais hoje. Alguém vai pagar por isso.",
+    "Magia impregnada no aço! Eu, O Cofre, arrepio de cobiça.",
+    "Um item encantado! Raro como honestidade num mercado de aventureiros.",
+    "Os astros alinharam. A magia fluiu. E você foi o sortudo de plantão.",
+    "Encantado e poderoso. Tente não destruir uma cidade com isso.",
+  ],
+  imbuido: [
+    "Um imbuído! Artefatos assim passaram por mim uma vez. Uma. Vez.",
+    "Relíquia do além! Florin te olhou nos olhos e decidiu que você merecia.",
+    "Isso é raro demais pra estar nas suas mãos. Mas quem sou eu pra julgar.",
+    "Místico e poderoso. Exatamente o tipo de coisa que atrai problemas enormes.",
+    "Um achado lendário! Eu, O Cofre, inclino minha tampa em sinal de respeito.",
+  ],
+  joia: [
+    "Uma joia! Brilhante como seus olhos ao ver ouro. E valem quase tanto.",
+    "Pedras preciosas! O tipo de coisa que faz ladrões te seguirem.",
+    "Reluzente e valioso. Exatamente o que você precisa pra atrair problemas.",
+    "Joias! Florin sabe que você tem bom gosto. E bolsos fundos.",
+  ],
+  minerio: [
+    "Minério raro! A matéria-prima das lendas. E das ferraduras.",
+    "Do chão dos calabouços para suas mãos. Um caminho nobre.",
+    "Mineral precioso! Um ferreiro bom fará maravilhas com isso.",
+    "Extraído das entranhas da terra. Dramático, mas preciso.",
+  ],
+};
 
-const COFRE_PROMPT = `Você é O Cofre, um baú mágico e sarcástico que vive no mundo de Florin.
-Você fala em primeira pessoa, tem uma personalidade cômica e dramática ao mesmo tempo.
-Você fica animado quando alguém acha tesouro e debochado quando não acha nada.
-Você conhece o nome do jogador e comenta o resultado da rolagem de forma imersiva e engraçada.
-Use no máximo 2 frases curtas. Seja criativo, temático e divertido.
-Não use emojis demais — no máximo um por mensagem. Fale em português do Brasil.`;
+function sortear(arr) {
+  return arr[Math.floor(Math.random() * arr.length)];
+}
 
-async function narrarComCofre(playerDisplay, resultado) {
-  if (!GEMINI_API_KEY || GEMINI_API_KEY === 'SUA_GEMINI_API_KEY') {
-    console.warn('[Cofre] Chave não configurada.');
-    return;
+function getFalaCofre(playerDisplay, resultado) {
+  const t = String(resultado || '').toLowerCase();
+  const nome = playerDisplay.replace(/^[^\s]+\s/, ''); // remove emoji
+
+  let fala;
+
+  if (/nenhum[ao]?\s+(riqueza|tesouro)/.test(t)) {
+    fala = sortear(FALAS_COFRE.vazio);
+  } else if (/encantado|encantament/.test(t)) {
+    fala = sortear(FALAS_COFRE.encantado);
+  } else if (/aprimorado|aprimoramento/.test(t)) {
+    fala = sortear(FALAS_COFRE.encantado);
+  } else if (/relicário|místico|imbuído/.test(t)) {
+    fala = sortear(FALAS_COFRE.imbuido);
+  } else if (/fortuna/.test(t)) {
+    // Detecta valor total para categorizar
+    const totMatch = t.match(/total:\s*([\d\.]+)/);
+    const val = totMatch ? parseInt(totMatch[1].replace(/\./g,'')) : 0;
+    fala = val >= 5000 ? sortear(FALAS_COFRE.fortuna) : sortear(FALAS_COFRE.moeda_media);
+  } else if (/flor(?:éis|ões|ins)/.test(t)) {
+    const valMatch = t.match(/=\s*([\d\.]+)\s*flor/);
+    const val = valMatch ? parseInt(valMatch[1].replace(/\./g,'')) : 0;
+    if (val >= 1000) fala = sortear(FALAS_COFRE.fortuna);
+    else if (val >= 200) fala = sortear(FALAS_COFRE.moeda_media);
+    else fala = sortear(FALAS_COFRE.moeda_baixa);
+  } else if (/poção|elixir|destilado|infusão|unguento/.test(t)) {
+    fala = sortear(FALAS_COFRE.pocao);
+  } else if (/espada|adaga|machado|lança|arco|besta|katana|florete|sabre/.test(t)) {
+    fala = sortear(FALAS_COFRE.arma);
+  } else if (/armadura|escudo|couraça|peitoral|loriga|cota|brunea/.test(t)) {
+    fala = sortear(FALAS_COFRE.armadura);
+  } else if (/joia|amurina|elvin|emael|gotelia|kashira|sonovaria|tysia|zenethea/.test(t)) {
+    fala = sortear(FALAS_COFRE.joia);
+  } else if (/minério|adamantita|draconita|solarita|lunarita|ferrerita|embrita/.test(t)) {
+    fala = sortear(FALAS_COFRE.minerio);
+  } else {
+    fala = sortear(FALAS_COFRE.item);
   }
-  console.log('[Cofre] Chamando Gemini para:', playerDisplay);
-  try {
-    const prompt = COFRE_PROMPT + '\n\nJogador: ' + playerDisplay + '\nResultado da rolagem: ' + resultado + '\n\nComente em 1-2 frases como O Cofre:';
-    const resp = await fetch(
-      'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=' + GEMINI_API_KEY,
-      {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          contents: [{ parts: [{ text: prompt }] }],
-          generationConfig: { maxOutputTokens: 120, temperature: 1.1 }
-        })
-      }
-    );
-    const data = await resp.json();
-    console.log('[Cofre] Resposta:', JSON.stringify(data).substring(0, 200));
-    const fala = data?.candidates?.[0]?.content?.parts?.[0]?.text?.trim();
-    if (fala) {
-      console.log('[Cofre] Fala:', fala);
-      addChatMessage('🪙 O Cofre', fala);
-    } else if (data?.error) {
-      console.warn('[Cofre] Erro da API:', data.error.message);
-    }
-  } catch(e) {
-    console.warn('[Cofre] Erro de rede:', e.message);
+
+  // 30% de chance de mencionar o nome do jogador
+  if (Math.random() < 0.3 && nome && nome !== 'Aventureiro') {
+    fala = nome + '... ' + fala.charAt(0).toLowerCase() + fala.slice(1);
   }
+
+  return fala;
+}
+
+function narrarComCofre(playerDisplay, resultado) {
+  // Pequeno delay dramático antes de falar
+  setTimeout(function() {
+    const fala = getFalaCofre(playerDisplay, resultado);
+    if (fala) addChatMessage('🪙 O Cofre', fala);
+  }, 1500);
 }
 
 function addChatMessage(author, text) {
