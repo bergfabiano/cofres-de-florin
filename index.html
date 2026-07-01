@@ -1967,56 +1967,53 @@ function updateManualFilters() {
     // ==============================
 
     const tabelaItensComuns = [
-      { min: 1, max: 2, item: "Frascos de Vidro (5 und)" },
-      { min: 3, max: 4, item: "Kit de Ferraria" },
-      { min: 5, max: 6, item: "Roupa comum" },
-      { min: 7, max: 8, item: "Corda de cânhamo (15m)" },
-      { min: 9, max: 10, item: "Cantil" },
-      { min: 11, max: 12, item: "Lanterna comum" },
-      { min: 13, max: 14, item: "Barraca média" },
-      { min: 15, max: 16, item: "Kit do estudioso" },
-      { min: 17, max: 18, item: "Manta / cobertor / saco de dormir" },
-      { min: 19, max: 20, item: "Instrumento musical" },
-      { min: 21, max: 22, item: "Kit de primeiros socorros" },
-      { min: 23, max: 24, item: "Caleidoscópio ou lupa" },
-      { min: 25, max: 26, item: "Panelas e utensílios" },
-      { min: 27, max: 28, item: "Bolsa de cinto" },
-      { min: 29, max: 30, item: "Kit do aventureiro" },
-      { min: 31, max: 32, item: "Barril pequeno" },
-      { min: 33, max: 34, item: "Corda de seda (15m)" },
-      { min: 35, max: 36, item: "Apito" },
-      { min: 37, max: 38, item: "Giz (caixa com 20 und)" },
-      { min: 39, max: 40, item: "Barraca grande" },
-      { min: 41, max: 42, item: "Kit de mago ou escriba" },
-      { min: 43, max: 44, item: "Espelho de aço" },
-      { min: 45, max: 46, item: "Pergaminho em branco (10 und)" },
-      { min: 47, max: 48, item: "Perfume fino" },
-      { min: 49, max: 50, item: "Cúpula da vitalidade" },
-      { min: 51, max: 52, item: "Kit de ladrão" },
-      { min: 53, max: 54, item: "Tocha" },
-      { min: 55, max: 56, item: "Barraca pequena" },
-      { min: 57, max: 58, item: "Roupa nobre" },
-      { min: 59, max: 60, item: "Pena de escrever" },
-      { min: 61, max: 62, item: "Símbolo sagrado" },
-      { min: 63, max: 64, item: "Tinta (frasco)" },
-      { min: 65, max: 66, item: "Kit de sacerdote" },
-      { min: 67, max: 68, item: "Alforje de conservação" },
-      { min: 69, max: 70, item: "Kit de alquimia" },
-      { min: 71, max: 72, item: "Mapas e bússolas" },
-      { min: 73, max: 74, item: "Pederneira e isqueiro" },
-      { min: 75, max: 76, item: "Sineta" },
-      { min: 77, max: 78, item: "Livro em branco" },
-      { min: 79, max: 80, item: "Óleo (frasco)" },
-      { min: 81, max: 82, item: "Ração de viagem (1 dia)" },
-      { min: 83, max: 84, item: "Kit do artista" },
-      { min: 85, max: 86, item: "Ganchos de escalada (4 und)" },
-      { min: 87, max: 88, item: "Mochila de aventureiro" },
-      { min: 89, max: 90, item: "Ampulheta" },
-      { min: 91, max: 92, item: "Kit de disfarce" },
-      { min: 93, max: 94, item: "Kit de herbalismo" },
-      { min: 95, max: 96, item: "Mochila de aventureiro" },
-      { min: 97, max: 98, item: "Bolsa de cinto" },
-      { min: 99, max: 100, item: "Corda de seda (15m)" }
+      { min: 1, max: 3, item: "Mochila de Aventureiro" },
+      { min: 4, max: 6, item: "Bolsa de Cinto" },
+      { min: 7, max: 9, item: "Corda de Seda (15 m)" },
+      { min: 10, max: 12, item: "Ganchos de Escalada (4 unid)" },
+      { min: 13, max: 15, item: "Tocha" },
+      { min: 16, max: 18, item: "Pederneira e Isqueiro" },
+      { min: 19, max: 20, item: "Manta / Cobertor / Saco de Dormir" },
+      { min: 21, max: 22, item: "Cantil" },
+      { min: 23, max: 24, item: "Ração de Viagem (1 dia)" },
+      { min: 25, max: 26, item: "Kit do Aventureiro" },
+      { min: 27, max: 28, item: "Kit do Estudioso" },
+      { min: 29, max: 30, item: "Kit de Primeiros Socorros" },
+      { min: 31, max: 32, item: "Kit de Alquimia" },
+      { min: 33, max: 34, item: "Kit de Herbalismo" },
+      { min: 35, max: 36, item: "Kit de Ferramentas" },
+      { min: 37, max: 38, item: "Kit de Mago ou Escriba" },
+      { min: 39, max: 40, item: "Kit de Ladrão" },
+      { min: 41, max: 42, item: "Kit de Sacerdote" },
+      { min: 43, max: 44, item: "Kit de Disfarce" },
+      { min: 45, max: 46, item: "Kit do Artista" },
+      { min: 47, max: 48, item: "Barraca Pequena" },
+      { min: 49, max: 50, item: "Barraca Média" },
+      { min: 51, max: 52, item: "Barraca Grande" },
+      { min: 53, max: 54, item: "Panelas e Utensílios" },
+      { min: 55, max: 56, item: "Mapas e Bússola" },
+      { min: 57, max: 58, item: "Frascos de Vidro (5 und)" },
+      { min: 59, max: 60, item: "Alforje de Conservação" },
+      { min: 61, max: 62, item: "Barril Pequeno" },
+      { min: 63, max: 64, item: "Cúpula da Vitalidade" },
+      { min: 65, max: 66, item: "Espelho de Aço" },
+      { min: 67, max: 68, item: "Sineta" },
+      { min: 69, max: 70, item: "Giz (caixa com 20 und)" },
+      { min: 71, max: 72, item: "Pergaminho em Branco (10 und)" },
+      { min: 73, max: 74, item: "Tinta (frasco)" },
+      { min: 75, max: 76, item: "Pluma do Escriba" },
+      { min: 77, max: 78, item: "Símbolo Sagrado" },
+      { min: 79, max: 80, item: "Lanterna Comum" },
+      { min: 81, max: 82, item: "Óleo (frasco)" },
+      { min: 83, max: 84, item: "Apito" },
+      { min: 85, max: 86, item: "Caleidoscópio ou Lupa" },
+      { min: 87, max: 88, item: "Ampulheta" },
+      { min: 89, max: 90, item: "Livro em Branco" },
+      { min: 91, max: 92, item: "Caixa de Joias ou Madeira Nobre" },
+      { min: 93, max: 94, item: "Perfume Fino" },
+      { min: 95, max: 96, item: "Instrumento Musical" },
+      { min: 97, max: 98, item: "Roupa Nobre" },
+      { min: 99, max: 100, item: "Roupa Comum" }
     ];
 
     function getItemComum() {
@@ -2048,101 +2045,100 @@ function updateManualFilters() {
     // =========================
 
     const tabelaPocoesComum = [
-      { min: 1, max: 10, item: "Unguento Vital" },
-      { min: 11, max: 20, item: "Composto Mágico" },
-      { min: 21, max: 30, item: "Antídoto" },
-      { min: 31, max: 40, item: "Poção de Barbatana" },
-      { min: 41, max: 50, item: "Ácido" },
-      { min: 51, max: 60, item: "Bomba" },
-      { min: 61, max: 70, item: "Cosmético ou Maquiagem" },
-      { min: 71, max: 80, item: "Elixir do Amor" },
-      { min: 81, max: 90, item: "Fogo Alquímico" },
-      { min: 91, max: 100, item: "Sopro de Corvo" }
+      { min: 1, max: 8, item: "Névoa Enjoativa" },
+      { min: 9, max: 16, item: "Ácido" },
+      { min: 17, max: 24, item: "Cosmético" },
+      { min: 25, max: 32, item: "Elixir do Amor" },
+      { min: 33, max: 40, item: "Fogo Alquímico" },
+      { min: 41, max: 48, item: "Pó de Fada" },
+      { min: 49, max: 56, item: "Catalisador Ígneo" },
+      { min: 57, max: 64, item: "Cristal de Aether" },
+      { min: 65, max: 72, item: "Essência Estabilizadora" },
+      { min: 73, max: 79, item: "Fragmento Ferreus" },
+      { min: 80, max: 86, item: "Pedra Purificadora" },
+      { min: 87, max: 93, item: "Unguento Vital" },
+      { min: 94, max: 100, item: "Bomba" }
     ];
 
     const tabelaPocoesLendario = [
-      { min: 1, max: 10, item: "Destilado Revigorante" },
-      { min: 11, max: 20, item: "Infusão Arcana" },
-      { min: 21, max: 30, item: "Poção de Guerra" },
-      { min: 31, max: 40, item: "Poção Potente de Raiva" },
-      { min: 41, max: 49, item: "Poção Indestrutível" },
-      { min: 50, max: 58, item: "Poção de Invisibilidade Inferior" },
-      { min: 59, max: 67, item: "Cristal de Aether" },
-      { min: 68, max: 76, item: "Fragmento Ferreus" },
-      { min: 77, max: 84, item: "Toxina da Naja Negra" },
-      { min: 85, max: 92, item: "Veneno Sonífero" },
-      { min: 93, max: 100, item: "Tinta Paralítica" }
+      { min: 1, max: 8, item: "Composto Mágico" },
+      { min: 9, max: 16, item: "Poção de Barbatana" },
+      { min: 17, max: 24, item: "Bruma do Sono" },
+      { min: 25, max: 32, item: "Sopro da Corvina" },
+      { min: 33, max: 40, item: "Antídoto" },
+      { min: 41, max: 48, item: "Lágrima Negra" },
+      { min: 49, max: 56, item: "Toque Paralisante" },
+      { min: 57, max: 64, item: "Seiva Pútrida" },
+      { min: 65, max: 72, item: "Poção Meditativa" },
+      { min: 73, max: 79, item: "Poção de Purificação" },
+      { min: 80, max: 86, item: "Frasco de Luz Cegante" },
+      { min: 87, max: 93, item: "Pó da Mente Partida" },
+      { min: 94, max: 100, item: "Destilado Revigorante" }
     ];
 
     const tabelaPocoesColossal = [
-      { min: 1, max: 5, item: "Frasco Vulcânico" },
-      { min: 6, max: 10, item: "Elixir do Sentido Sobrenatural" },
-      { min: 11, max: 15, item: "Poção de Purificação" },
-      { min: 16, max: 20, item: "Catalisador Ígneo" },
-      { min: 21, max: 25, item: "Frasco Crepuscular" },
-      { min: 26, max: 30, item: "Elixir das Veias Flamejantes" },
-      { min: 31, max: 35, item: "Ungido da Vida" },
-      { min: 36, max: 40, item: "Frasco da Serpe Gélida" },
-      { min: 41, max: 45, item: "Venenillo" },
-      { min: 46, max: 50, item: "Licor Místico" },
-      { min: 51, max: 55, item: "Frasco da Alvorada" },
-      { min: 56, max: 60, item: "Elixir da Precisão" },
-      { min: 61, max: 65, item: "Poção Meditativa" },
-      { min: 66, max: 70, item: "Veneno Persistente (Garra de Hydra)" },
-      { min: 71, max: 75, item: "Vulcânica" },
-      { min: 76, max: 80, item: "Elixir do Casco de Tartaruga" },
-      { min: 81, max: 85, item: "Frasco Inferior de Resistência" },
-      { min: 86, max: 90, item: "Frasco de Luz Cegante" },
-      { min: 91, max: 95, item: "Elixir de Sangue Rúnico" },
-      { min: 96, max: 100, item: "Frasco do Tremor" }
+      { min: 1, max: 8, item: "Poção Potente de Raiva" },
+      { min: 9, max: 16, item: "Sombra Rastejante" },
+      { min: 17, max: 24, item: "Infusão Arcana" },
+      { min: 25, max: 32, item: "Elixir da Respiração do Oceano" },
+      { min: 33, max: 40, item: "Frasco do Alquimista" },
+      { min: 41, max: 48, item: "Sangue da Hidra" },
+      { min: 49, max: 56, item: "Raiz da Donzela" },
+      { min: 57, max: 64, item: "Bálsamo Carniceiro" },
+      { min: 65, max: 72, item: "Elixir do Olho de Gato" },
+      { min: 73, max: 79, item: "Elixir do Olho do Véu" },
+      { min: 80, max: 86, item: "Elixir de Camuflagem" },
+      { min: 87, max: 93, item: "Elixir de Força Titânica" },
+      { min: 94, max: 100, item: "Elixir da Vontade Felina" }
     ];
 
     const tabelaPocoesTitanico = [
       { min: 1, max: 8, item: "Elixir da Coruja" },
-      { min: 9, max: 16, item: "Espectro" },
-      { min: 17, max: 24, item: "Pó de Fada" },
-      { min: 25, max: 31, item: "Elixir do Arcano" },
-      { min: 32, max: 38, item: "Frasco do Alquimista" },
-      { min: 39, max: 45, item: "Essência Estabilizadora" },
-      { min: 46, max: 52, item: "Elixir da Maestria" },
-      { min: 53, max: 59, item: "Pústula" },
-      { min: 60, max: 66, item: "Elixir do Olho de Gato" },
-      { min: 67, max: 73, item: "Poção do Alquimista Maluco" },
-      { min: 74, max: 80, item: "Extrato Essencial" },
-      { min: 81, max: 87, item: "Elixir da Vontade Felina" },
-      { min: 88, max: 93, item: "Néctar Astral" },
-      { min: 94, max: 100, item: "Elixir de Força Titânica" }
+      { min: 9, max: 16, item: "Elixir da Precisão" },
+      { min: 17, max: 24, item: "Elixir das Veias Sombrias" },
+      { min: 25, max: 32, item: "Elixir Arcano" },
+      { min: 33, max: 40, item: "Fúria Cega" },
+      { min: 41, max: 48, item: "Poção de Guerra" },
+      { min: 49, max: 56, item: "Elixir do Casco de Tartaruga" },
+      { min: 57, max: 64, item: "Elixir do Sentido Sobrenatural" },
+      { min: 65, max: 72, item: "Elixir de Sangue Rúnico" },
+      { min: 73, max: 79, item: "Elixir de Veias Flamejantes" },
+      { min: 80, max: 86, item: "Frasco de Resistência" },
+      { min: 87, max: 93, item: "Frasco da Serpe Gélida" },
+      { min: 94, max: 100, item: "Frasco Vulcânico" }
     ];
 
     const tabelaPocoesMitico = [
-      { min: 1, max: 10, item: "Elixir da Camuflagem" },
-      { min: 11, max: 20, item: "Panaceia Concentrada" },
-      { min: 21, max: 30, item: "Elixir da Respiração do Oceano" },
-      { min: 31, max: 40, item: "Pedra Purificadora" },
-      { min: 41, max: 49, item: "Elixir da Expansão Vital" },
-      { min: 50, max: 58, item: "Elixir do Olho de Coruja" },
-      { min: 59, max: 67, item: "Quinta Essência" },
-      { min: 68, max: 76, item: "Elixir do Sábio" },
-      { min: 77, max: 84, item: "Transformadora" },
-      { min: 85, max: 92, item: "Elixir das Veias Sombrias" },
-      { min: 93, max: 100, item: "Elixir da Expansão Cerebral" }
+      { min: 1, max: 8, item: "Frasco do Tremor" },
+      { min: 9, max: 16, item: "Extrato do Pântano" },
+      { min: 17, max: 24, item: "Licor Místico" },
+      { min: 25, max: 32, item: "Poção Indestrutível" },
+      { min: 33, max: 40, item: "Poção do Alquimista Maluco" },
+      { min: 41, max: 48, item: "Frasco da Alvorada" },
+      { min: 49, max: 56, item: "Frasco Crepuscular" },
+      { min: 57, max: 64, item: "Ungido da Vida" },
+      { min: 65, max: 72, item: "Poção de Surto" },
+      { min: 73, max: 79, item: "Elixir do Sábio" },
+      { min: 80, max: 86, item: "Elixir da Maestria" },
+      { min: 87, max: 93, item: "Gota Amarga" },
+      { min: 94, max: 100, item: "Poção Vulcânica" }
     ];
 
     const tabelaPocoesEpico = [
-      { min: 1, max: 8, item: "Elixir da Expansão Vital" },
-      { min: 9, max: 16, item: "Elixir da Camuflagem" },
-      { min: 17, max: 24, item: "Panaceia Concentrada" },
-      { min: 25, max: 32, item: "Elixir da Respiração do Oceano" },
-      { min: 33, max: 40, item: "Quinta Essência" },
-      { min: 41, max: 48, item: "Elixir do Sábio" },
-      { min: 49, max: 56, item: "Elixir da Expansão Cerebral" },
-      { min: 57, max: 64, item: "Transformadora" },
-      { min: 65, max: 72, item: "Pedra Purificadora" },
-      { min: 73, max: 80, item: "Elixir do Olho de Coruja" },
-      { min: 81, max: 88, item: "Elixir das Veias Sombrias" },
-      { min: 89, max: 94, item: "Elixir do Sexto Sentido" },
-      { min: 95, max: 97, item: "LX" },
-      { min: 98, max: 100, item: "Poção de Surto" }
+      { min: 1, max: 8, item: "Névoa do Esquecimento" },
+      { min: 9, max: 16, item: "Poção Transformadora" },
+      { min: 17, max: 23, item: "Elixir de Expansão Vital" },
+      { min: 24, max: 30, item: "Esporo da Morte Silenciosa" },
+      { min: 31, max: 37, item: "Extrato Essencial" },
+      { min: 38, max: 44, item: "Elixir de Expansão Cerebral" },
+      { min: 45, max: 51, item: "Véu Violeta" },
+      { min: 52, max: 58, item: "Olho de Raposa" },
+      { min: 59, max: 65, item: "Gelo Paralisante" },
+      { min: 66, max: 72, item: "Néctar Astral" },
+      { min: 73, max: 79, item: "Panaceia Concentrada" },
+      { min: 80, max: 86, item: "Quinta Essência" },
+      { min: 87, max: 93, item: "Elixir do Sexto Sentido" },
+      { min: 94, max: 100, item: "LX" }
     ];
     // =========================
     // 💍 TABELA DE JOIAS
@@ -2338,9 +2334,31 @@ function updateManualFilters() {
       "Venomita"
     ];
 
+    // =========================
+    // 🛠️ AUXILIARES DE FORJA
+    // =========================
+    // Sempre que a rolagem de Bens indicar MINÉRIO, role 1d6 adicional.
+    // Em um resultado de 6, em vez de um minério comum, o item encontrado
+    // é um Auxiliar de Forja (consumível que reduz CD/tempo de forja ou
+    // permite nova tentativa em caso de falha).
+    const tabelaAuxiliaresForja = [
+      { min: 1, max: 34, item: "Amplificador" },
+      { min: 35, max: 67, item: "Neutralizador" },
+      { min: 68, max: 100, item: "Fortificador" }
+    ];
+
+    function getAuxiliarForja() {
+      const resultado = getItemFromRangeTable(tabelaAuxiliaresForja);
+      return `🎲 Auxiliar de Forja (d100: ${resultado.roll}) → ${resultado.item}`;
+    }
+
     function getMinerio() {
+      const auxRoll = rollDie(6);
+      if (auxRoll === 6) {
+        return `🎲 Auxiliar de Forja (1d6: ${auxRoll}) → ${getAuxiliarForja()}`;
+      }
       const roll = rollDie(12);
-      return `🎲 Minério (1d12: ${roll}) → ${tabelaMinerios[roll - 1]}`;
+      return `🎲 Minério (1d6: ${auxRoll} · 1d12: ${roll}) → ${tabelaMinerios[roll - 1]}`;
     }
     
     function getImbuidoTablesByScale(escalaTexto) {
